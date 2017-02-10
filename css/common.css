@@ -316,7 +316,7 @@ a {
   position: fixed;
   width: 100%;
   height: 100%;
-  background-color: #000;
+  background-color: #fff;
   z-index: 999; }
   .loading .imgBox {
     position: absolute;
@@ -339,6 +339,87 @@ a {
 /****************************************/
 /**************** HEADER ****************/
 /****************************************/
+/*******************************************/
+/**************** Accordion ****************/
+/*******************************************/
+.accordionContainer .accordionBox {
+  border-bottom: 1px solid #d8d8d8;
+  padding: 10px 0; }
+  .accordionContainer .accordionBox:first-child {
+    border-top: 1px solid #d8d8d8; }
+  .accordionContainer .accordionBox .accordionItem {
+    color: #000; }
+    .accordionContainer .accordionBox .accordionItem .title {
+      display: block;
+      position: relative;
+      font-size: 18px;
+      cursor: pointer;
+      font-weight: 300;
+      padding: 10px 0; }
+      .accordionContainer .accordionBox .accordionItem .title .ico {
+        position: absolute;
+        top: 8px;
+        right: 10px;
+        font-size: 22px; }
+        .accordionContainer .accordionBox .accordionItem .title .ico:before {
+          font-weight: 700; }
+    .accordionContainer .accordionBox .accordionItem .accordionContent {
+      position: relative;
+      overflow: hidden;
+      font-weight: 300;
+      line-height: 1.5em; }
+      .accordionContainer .accordionBox .accordionItem .accordionContent ul.hyphen {
+        padding-top: 20px; }
+        .accordionContainer .accordionBox .accordionItem .accordionContent ul.hyphen li {
+          position: relative;
+          padding-left: 30px; }
+          .accordionContainer .accordionBox .accordionItem .accordionContent ul.hyphen li:before {
+            content: '-';
+            position: absolute;
+            top: 0;
+            left: 0; }
+
+/*******************************************/
+/**************** TAB STYLE ****************/
+/*******************************************/
+.tabHead {
+  border-bottom: 1px solid #d8d8d8; }
+  .tabHead .tabHeadItem {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    vertical-align: top;
+    width: 33.3%;
+    text-align: center;
+    padding: 20px 0;
+    margin-bottom: -1px;
+    cursor: pointer;
+    color: #999;
+    border-bottom: 3px solid transparent;
+    -webkit-transition: color 0.4s ease, border-color 0.4s ease;
+    transition: color 0.4s ease, border-color 0.4s ease; }
+    .tabHead .tabHeadItem.active {
+      color: #00919f;
+      border-color: #00919f; }
+    .desktop .tabHead .tabHeadItem:hover {
+      color: #00919f; }
+
+.tabContent {
+  position: relative;
+  text-align: left;
+  overflow: hidden; }
+  .tabContent .tabContentItem {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; }
+    .tabContent .tabContentItem.active {
+      position: relative; }
+    .tablet .tabContent .tabContentItem .innertabContentItem,
+    .mobile .tabContent .tabContentItem .innertabContentItem {
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch; }
+
 /***************************************/
 /**************** POPUP ****************/
 /***************************************/

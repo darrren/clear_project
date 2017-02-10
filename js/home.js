@@ -10,6 +10,8 @@ define(["main.min", "test"], function(main, test){
 
 				$(document).ready(function () {
 					console.log('home function here!!!');
+					accordion();
+					tabsInit('.tabsContainer');
 				});
 
 				require(["domReady!"], function() {
@@ -21,8 +23,13 @@ define(["main.min", "test"], function(main, test){
 		//			tl.to(".box", 1, {x:200, ease: Power3.easeOut}, "-=0.3");
 					
 //					popup({
-//						selector: '.popup'
-//					})
+//						selector: '.popup',
+//						callbacks: {
+//							open: function(){
+//								console.log('hi');
+//							}
+//						}
+//					});
 				});
 			});
 			
