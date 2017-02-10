@@ -1,0 +1,107 @@
+@mixin inlineBlock() {
+	display:inline-block;
+	*display:inline;
+	*zoom:1;
+}
+
+@mixin verticalMiddle() {
+	display:inline-block;
+	*display:inline;
+	*zoom:1;
+	vertical-align:middle;
+}
+
+@mixin hoverText() {
+  -webkit-transition: color 0.5s ease;
+     -moz-transition: color 0.5s ease;
+      -ms-transition: color 0.5s ease;
+       -o-transition: color 0.5s ease;
+          transition: color 0.5s ease;
+}
+
+@mixin transition ($prop, $time, $ease) {
+	-webkit-transition: $prop $time $ease;
+	   -moz-transition: $prop $time $ease;
+	     -o-transition: $prop $time $ease;
+	    -ms-transition: $prop $time $ease;
+	        transition: $prop $time $ease;
+}
+
+@mixin transform ($transform) {
+	-webkit-transform: $transform;
+	   -moz-transform: $transform;
+	     -o-transform: $transform;
+	    -ms-transform: $transform;
+	        transform: $transform;
+}
+
+@mixin transformOrigin ($transformOrigin) {
+	-webkit-transform-origin: $transformOrigin;
+	   -moz-transform-origin: $transformOrigin;
+	     -o-transform-origin: $transformOrigin;
+	    -ms-transform-origin: $transformOrigin;
+	        transform-origin: $transformOrigin;
+}
+
+@mixin prefix($property, $value, $prefixes: ()) {
+    @each $prefix in $prefixes {
+        #{'-' + $prefix + '-' + $property}: $value;
+    }
+    // Output standard non-prefixed declaration
+    #{$property}: $value;
+}
+
+@mixin animation ($delay, $duration, $animation, $iterationcount) {
+    -webkit-animation-delay: $delay;
+    -webkit-animation-duration: $duration;
+    -webkit-animation-name: $animation;
+    -webkit-animation-iteration-count: $iterationcount;
+    -webkit-animation-fill-mode: forwards;
+
+
+    -moz-animation-delay: $delay;
+    -moz-animation-duration: $duration;
+    -moz-animation-name: $animation;
+    -moz-animation-iteration-count: $iterationcount;
+    -moz-animation-fill-mode: forwards;
+
+    -o-animation-delay: $delay;
+    -o-animation-duration: $duration;
+    -o-animation-name: $animation;
+    -o-animation-iteration-count: $iterationcount;
+    -o-animation-fill-mode: forwards;
+
+    -ms-animation-delay: $delay;
+    -ms-animation-duration: $duration;
+    -ms-animation-name: $animation;
+    -ms-animation-iteration-count: $iterationcount;
+    -ms-animation-fill-mode: forwards;
+
+    animation-delay: $delay;
+    animation-duration: $duration;
+    animation-name: $animation;
+    animation-iteration-count: $iterationcount;
+    animation-fill-mode: forwards;
+}
+
+@mixin keyframe($animation_name) {
+    @-webkit-keyframes #{$animation_name} {
+        @content;
+    }
+
+    @-moz-keyframes #{$animation_name} {
+        @content;
+    }
+
+    @-o-keyframes #{$animation_name} {
+        @content;
+    }
+
+    @-ms-keyframes #{$animation_name} {
+        @content;
+    }
+
+    @keyframes #{$animation_name} {
+        @content;
+    }
+}

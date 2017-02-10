@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html lang="zh">
+<head>
+
+<!-- Include -->
+<!--#include file="include/include.html"-->
+</head>
+<body>
+	<div class="loading"><div class="imgBox"><img class="img100" src="../images/common/loading.gif"></div></div>
+	<div class="wrapper">
+		<!--#include file="include/header.html"-->
+
+		<div class="container">
+			<div class="contentContainer">
+				<div class="box" style="position:relative; width:100px; height:100px; background:#000; z-index:1;"></div>
+				<br/><br/><br/><br/><br/><br/><br/><br/>
+				
+				<div id="map" style="width:500px; height:300px;"></div>
+			</div>
+		</div>
+
+		<!--#include file="include/footer.html"-->
+		<!--#include file="include/popup.html"-->
+	</div>
+	
+	<!-- JS -->
+	<script data-main="../js/main.min" src="../js/requirejs/require.js"></script>
+	<script type="text/javascript">
+		require(['../js/home'], function(home){
+			home.init();
+		});
+	</script>
+</body>
+</html>

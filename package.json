@@ -1,0 +1,28 @@
+{
+  "name": "clearproject",
+  "version": "1.0.0",
+  "main": "gulpfile.js",
+  "dependencies": {
+	"bower": "^1.7.9",
+    "main-bower-files": "^2.13.1",
+    "browser-sync": "^2.18.5",
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-requirejs-optimize": "^1.2.0",
+    "gulp-sass": "^3.0.0",
+    "connect-ssi": "^1.1.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-filter": "^4.0.0",
+    "gulp-iconfont": "^8.0.1",
+    "gulp-imagemin": "^3.1.1",
+    "gulp-plumber": "^1.1.0",
+    "gulp-uglify": "^2.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}
