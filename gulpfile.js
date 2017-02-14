@@ -20,7 +20,7 @@ var runTimestamp	= Math.round(Date.now()/1000);
 
 var path			= {
 	html:	'./html/**/*.html',
-	css: 	'./css/scss/**/*.scss',
+	css: 	'./sources/css/scss/**/*.scss',
 	js:		'./sources/js/*.js'
 }
 
