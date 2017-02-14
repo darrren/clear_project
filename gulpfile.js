@@ -21,15 +21,24 @@ var runTimestamp	= Math.round(Date.now()/1000);
 var path			= {
 	html:	'./html/**/*.html',
 	css: 	'./css/scss/**/*.scss',
-	js:		'./js/*.js'
+	js:		'./sources/js/*.js'
 }
 
 
 gulp.task('bower', function() {
 	gulp.src(mainBowerFiles('**/*.css'))
 		.pipe(gulp.dest('./css/lib'));
-	gulp.src(mainBowerFiles('**/*.js'))
+	
+	gulp.src(mainBowerFiles(['**/*.js']))
+		.pipe(filter(['**/*.js', '!**/require.js', '!**/domReady.js', '!**/requirejs-plugins/**/*.js']))
 		.pipe(gulp.dest('./js/lib'));
+	
+	gulp.src(mainBowerFiles('**/require.js'))
+		.pipe(gulp.dest('./js/requirejs'));
+	gulp.src(mainBowerFiles('**/domReady.js'))
+		.pipe(gulp.dest('./js/requirejs/plugin'));
+	gulp.src(mainBowerFiles('**/requirejs-plugins/src/*.js'))
+		.pipe(gulp.dest('./js/requirejs/plugin'));
 });
 
 
@@ -54,16 +63,16 @@ gulp.task('clean:dist', function(){
 });
 
 gulp.task('requirejs', function () {
-//	return gulp.src([path.js])
-	return gulp.src(['js/common.js', '!js/main.js'])
+	return gulp.src([path.js])
+//	return gulp.src(['js/common.js', '!js/main.js'])
         .pipe(reqOptimize({
 //			mainConfigFile: './js/main.js',
             optimize: "none"
         }))
 //		.pipe(uglify())
-		.pipe(concat("main.min.js"))
+//		.pipe(concat("main.min.js"))
         .pipe(gulp.dest('./js'))
-        .pipe(browserSync.reload({stream: true}));
+//        .pipe(browserSync.reload({stream: true}));
 });
 
 gulp.task('sass', function () {
@@ -122,7 +131,7 @@ gulp.task('Iconfont', function(){
  
 gulp.task('watch', ['browser-sync'], function () {
     gulp.watch(path.css, ['sass']);
-    gulp.watch(path.js, ['requirejs']);
+//    gulp.watch(path.js, ['requirejs']);
 	gulp.watch(path.html).on('change', browserSync.reload);
 });
 
