@@ -10,6 +10,7 @@ var uglify			= require('gulp-uglify');
 var autoprefixer	= require('gulp-autoprefixer');
 var imagemin        = require('gulp-imagemin');
 var iconfont		= require('gulp-iconfont');
+var iconfontCss		= require('gulp-iconfont-css');
 var plumber         = require('gulp-plumber');
 var del				= require('del');
 var browserSync		= require('browser-sync').create();
@@ -45,7 +46,7 @@ gulp.task('bower', function() {
 });
 
 
-gulp.task('browser-sync', ['requirejs', 'sass', 'Iconfont'], function () {
+gulp.task('browser-sync', ['requirejs', 'Iconfont', 'sass'], function () {
 	browserSync.init({
 		server: {
             baseDir: ".",
@@ -95,17 +96,23 @@ gulp.task('image:min', function () {
 });
 
 gulp.task('Iconfont', function(){
-  return gulp.src(['./images/icons/*.svg'])
+  return gulp.src(['./sources/images/icons/*.svg'])
+    .pipe(iconfontCss({
+      fontName: 'fontIco',
+      path: './sources/css/scss/_icons_template.scss',
+      targetPath: '../sources/css/scss/_icons.scss',
+      fontPath: '../fonts/'
+    }))
     .pipe(iconfont({
-      fontName: 'myfont', // required
+      fontName: 'fontIco', // required
       prependUnicode: true, // recommended option
-      formats: ['ttf', 'eot', 'woff'], // default, 'woff2' and 'svg' are available
+      formats: ['svg', 'ttf', 'eot', 'woff', 'woff2'], // default, 'woff2' and 'svg' are available
       timestamp: runTimestamp, // recommended to get consistent builds when watching files
     }))
-      .on('glyphs', function(glyphs, options) {
-        // CSS templating, e.g.
-        console.log(glyphs, options);
-      })
+//    .on('glyphs', function(glyphs, options) {
+    // CSS templating, e.g.
+//    console.log(glyphs, options);
+//    })
     .pipe(gulp.dest('./fonts'));
 });
  

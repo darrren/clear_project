@@ -47,6 +47,17 @@ define(["test"], function(test){
 							}
 						]
 					});
+                    
+                    checkboxFn({
+                        selector: '.category',
+                        multi: true,
+                        toggle: false
+                    });
+                    checkboxFn({
+                        selector: '.brand',
+                        multi: false,
+                        toggle: false
+                    });
 				});
 			});
 			

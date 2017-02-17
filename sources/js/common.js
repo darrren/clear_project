@@ -682,16 +682,30 @@ function accordion()
 
 
 /******************************** POPUP *******************************/
-function popup( obj )
+function popup( option )
 {
-	// var jspapi = null;
-
-	if( typeof obj.showcloseBtn == 'undefined' ){
-		obj.showcloseBtn = true;
-	}
-	if( typeof obj.closeOnBg == 'undefined' ){
-		obj.closeOnBg = true;
-	}
+    var defaults = {
+        selector: '',
+        mainClass: 'mfp-fade',
+        removalDelay: 500,
+        showCloseBtn: true,
+        closeMarkup: '<button title="Close (Esc)" type="button" class="mfp-close"><span class="ico icon-cross"></span></button>',
+        closeOnBgClick: true,
+        items: {
+            src: '',
+            type: "inline"
+        },
+        callbacks: {
+            open: function(){
+            },
+            close: function(){
+            },
+            afterClose: function(){
+            }
+        }
+    }
+    
+    var settings = $.extend( {}, defaults, option );
 
 	$.magnificPopup.close();
 
@@ -702,79 +716,137 @@ function popup( obj )
 	setTimeout(function()
 	{
 		$.magnificPopup.open({
-		    mainClass: 'mfp-fade',
-			removalDelay: 500,
-			showCloseBtn: obj.showcloseBtn,
-			closeMarkup: '<button title="Close (Esc)" type="button" class="mfp-close"><span class="ico icon-cross"></span></button>',
-			closeOnBgClick: obj.closeOnBg,
-			items: {
-				src: obj.selector,
-				type: "inline"
-			},
-			callbacks: {
-				open: function(){
-					$(window).on('resize.pop', function(){
-						$('.wrapper').css({'height':'auto'});
-						$('.wrapper').css({'height':window.innerHeight, 'overflow':'hidden'});
+            mainClass: settings.mainClass,
+            removalDelay: settings.removalDelay,
+            showCloseBtn: settings.showCloseBtn,
+            closeMarkup: settings.closeMarkup,
+            closeOnBgClick: settings.closeOnBgClick,
+            items: {
+                src: settings.selector,
+                type: settings.type
+            },
+            callbacks: {
+                open: function(){
+                    $(window).on('resize.pop', function(){
+                        $('.wrapper').css({'height':'auto'});
+                        $('.wrapper').css({'height':window.innerHeight, 'overflow':'hidden'});
 
-						$('.mfp-content').css({'height':'auto'});
-						if( $('.mfp-content').height() > window.innerHeight )
-						{
-							$('.mfp-content').css({'height':'100%'});
-						}
-					});
+                        $('.mfp-content').css({'height':'auto'});
+                        if( $('.mfp-content').height() > window.innerHeight )
+                        {
+                            $('.mfp-content').css({'height':'100%'});
+                        }
+                    });
 
-					setTimeout(function()
-					{
-						if( $('body').hasClass('mobile') ){
-							$(window).trigger('resize.pop');
-						}
-					}, 400);
+                    setTimeout(function()
+                    {
+                        if( $('body').hasClass('mobile') ){
+                            $(window).trigger('resize.pop');
+                        }
+                    }, 400);
 
-					$('.mfp-close, .backBtn').on('click', function()
-					{
-						$.magnificPopup.close();
-					});
-					isPopupOpen = true;
-					
-					if( typeof obj.callbacks.open === 'function' ){
-						obj.callbacks.open.call(this);
-					}
-				},
-				close: function(){
-					$('.wrapper').css({'height':'auto', 'overflow':''});
-					$(window).off('resize.pop');
-					isPopupOpen = false;
-					
-					if( typeof obj.callbacks.open === 'function' ){
-						obj.callbacks.close.call(this);
-					}
-				},
-				afterClose: function()
-				{
-					if( typeof obj.callbacks.open === 'function' ){
-						obj.callbacks.afterClose.call(this);
-					}
-				}
-			}
-		});
+                    $('.mfp-close, .backBtn').on('click', function()
+                    {
+                        $.magnificPopup.close();
+                    });
+                    isPopupOpen = true;
+
+                    if( typeof settings.callbacks.open === 'function' ){
+                        settings.callbacks.open.call(this);
+                    }
+                },
+                close: function(){
+                    $('.wrapper').css({'height':'auto', 'overflow':''});
+                    $(window).off('resize.pop');
+                    isPopupOpen = false;
+
+                    if( typeof settings.callbacks.close === 'function' ){
+                        settings.callbacks.close.call(this);
+                    }
+                },
+                afterClose: function()
+                {
+                    if( typeof settings.callbacks.afterClose === 'function' ){
+                        settings.callbacks.afterClose.call(this);
+                    }
+                }
+            }
+        });
 	}, 300);
 }
 
 
 /******************************** Slick *******************************/
-function slickInit( obj )
+function slickInit( option )
 {
-	$(obj.selector).slick({
-		lazyLoad: 'ondemand',
-		draggable: obj.draggable || false,
-		speed: obj.speed || 800,
-		infinite: obj.infinite || false,
-		easing: obj.easing || 'easeOutCubic',
-		prevArrow: obj.prevArrow || "<div class='slick-prev'><div class='ico icon-arrowl'></div></div>",
-		nextArrow: obj.nextArrow || "<div class='slick-next'><div class='ico icon-arrowr'></div></div>",
-		slidesToShow: obj.slidesToShow || 1,
-		slidesToScroll: obj.slidesToScroll || 1,
-		responsive: obj.responsive || null
+    var defaults = {
+        selector: '',
+        lazyLoad: 'ondemand',
+		draggable: false,
+		speed: 800,
+		infinite: false,
+		easing: 'easeOutCubic',
+		prevArrow: "<div class='slick-prev'><div class='ico icon-arrowl'></div></div>",
+		nextArrow: "<div class='slick-next'><div class='ico icon-arrowr'></div></div>",
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		responsive: null
+    }
+    
+    var settings = $.extend( {}, defaults, option );
+    
+	$( settings.selector ).slick(settings);
+}
+
+
+/******************************** Check Box *******************************/
+function checkboxFn( option )
+{   
+    var defaults = {
+        selector: '',
+        multi: false,
+        toggle: true    //work if multi is FALSE
+    }
+    
+    var settings = $.extend( {}, defaults, option );
+
+	$( settings.selector ).find('.listItem').on('click', function(e)
+	{
+		e.preventDefault();
+        console.log('1');
+		if( !settings.multi ){
+			if( $(this).hasClass('active') ){
+				if( settings.toggle ){
+					$(this).parents( settings.selector ).find('.listItem').removeClass('active');
+
+					$(this).parents( settings.selector ).find('.checkbox').removeClass('checked');
+					$(this).parents( settings.selector ).find('input[type="checkbox"]').attr('checked', false);
+				}
+			}
+			else{
+				$(this).parents( settings.selector ).find('.listItem').removeClass('active');
+				$(this).addClass('active');
+				
+				$(this).parents( settings.selector ).find('.checkbox').removeClass('checked');
+				$(this).parents( settings.selector ).find('input[type="checkbox"]').attr('checked', false);
+
+				$(this).find('.checkbox').addClass('checked');
+				$(this).find('input[type="checkbox"]').attr('checked', true);
+			}
+		}
+		else{
+			if( $(this).hasClass('active') ){
+				$(this).removeClass('active');
+				
+				$(this).find('.checkbox').removeClass('checked');
+				$(this).find('input[type="checkbox"]').attr('checked', false);
+			}
+			else{
+				$(this).addClass('active');
+
+				$(this).find('.checkbox').addClass('checked');
+				$(this).find('input[type="checkbox"]').attr('checked', true);
+			}
+		}
 	});
 }
