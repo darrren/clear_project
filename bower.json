@@ -15,6 +15,15 @@
     "magnific-popup": "^1.1.0",
     "modernizr": "^2.6.2",
     "slick-carousel": "^1.6.0",
-    "requirejs-plugins": "^1.0.3"
+    "requirejs-plugins": "^1.0.3",
+    "gsap": "^1.19.1"
+  },
+  "overrides": {
+    "slick-carousel": {
+        "main": ["slick/slick.js", "slick/slick.css", "slick/slick-theme.css", "slick/ajax-loader.gif", "slick/fonts/*"]
+    },
+    "gsap": {
+        "main": "./src/minified/*.min.js"
+    }
   }
 }

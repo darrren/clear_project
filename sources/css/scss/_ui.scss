@@ -1,5 +1,3 @@
-@import "mixin";
-
 html, 
 body{
 	background-color: #fff;
@@ -114,11 +112,11 @@ pre{
 .hide,
 .desktop .onlyM,
 .mobile .onlyD {
-	display: none;
+	display: none !important;
 }
 
 .block {
-	display: block;
+	display: block !important;
 }
 
 .inlineBlock {

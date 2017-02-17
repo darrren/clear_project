@@ -4,75 +4,204 @@
 
 <!-- Include -->
 <!--#include file="include/include.html"-->
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="../css/home.css">
 </head>
-<body>
+<body ontouchstart="">
 	<div class="loading"><div class="imgBox"><img class="img100" src="../images/common/loading.gif"></div></div>
 	<div class="wrapper">
-		<!--#include file="include/header.html"-->
+		<div class="innerWrapper">
+			<!--#include file="include/header.html"-->
 
-		<div class="container">
-			<div class="contentContainer">
-				<div class="box" style="position:relative; width:100px; height:100px; background:#000; z-index:1;"></div>
-				<br/><br/>
-<!--				<br/><br/><br/><br/><br/><br/>-->
-			
-				<img width="300" src="http://www.planwallpaper.com/static/images/autumn-wallpaper-hd.jpg" alt="">
-				
-				<div id="map" style="width:500px; height:300px;"></div>
-				<br/><br/>
-				
-				<div class="accordionContainer">
-					<div class="accordionBox">
-						<div class="accordionItem show">
-							<span class="title">Product Description<span class="ico icon-menuarrowd">^</span></span>
-							<div class="accordionContent">
-								<ul class="hyphen">
-									<li>Replace parchment paper and greasy sprays for baking</li>
-									<li>Easy to release and clean</li>
-									<li>Hello Kitty patterns can help to distribute pastry dough equally<br/>* (Spatula not included)</li>
-								</ul>
+			<div class="container">
+				<div class="contentContainer">
+					<div class="box" style="position:relative; width:100px; height:100px; background:#000; z-index:1;"></div>
+					<br/><br/>
+	<!--				<br/><br/><br/><br/><br/><br/>-->
+
+<!--					<img width="300" src="http://www.planwallpaper.com/static/images/autumn-wallpaper-hd.jpg" alt="">-->
+
+<!--					<div id="map" style="width:500px; height:300px;"></div>-->
+					<br/><br/>
+
+					<div class="tabsContainer">
+						<div class="tabHead">
+							<div class="tabHeadItem active">item 1</div><div class="tabHeadItem">item 2</div><div class="tabHeadItem">item 3</div>
+						</div>
+
+						<div class="tabContent">
+							<div class="tabContentItem">
+								<div class="innertabContentItem">
+									111<br/>111
+								</div>
+							</div>
+							<div class="tabContentItem">
+								<div class="innertabContentItem">
+									222
+								</div>
+							</div>
+							<div class="tabContentItem">
+								<div class="innertabContentItem">
+									333
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-				<br/><br/>
-				
-				<div class="tabsContainer">
-					<div class="tabHead">
-						<div class="tabHeadItem active">item 1</div><div class="tabHeadItem">item 2</div><div class="tabHeadItem">item 3</div>
-					</div>
+					<br/><br/>
 
-					<div class="tabContent">
-						<div class="tabContentItem">
-							<div class="innertabContentItem">
-								111<br/>111
+					<div class="accordionContainer">
+						<div class="accordionBox">
+							<div class="accordionItem show">
+								<span class="title">Product Description<span class="ico icon-menuarrowd">^</span></span>
+								<div class="accordionContent">
+									<ul class="hyphen">
+										<li>Replace parchment paper and greasy sprays for baking</li>
+										<li>Easy to release and clean</li>
+										<li>Hello Kitty patterns can help to distribute pastry dough equally<br/>* (Spatula not included)</li>
+									</ul>
+								</div>
 							</div>
 						</div>
-						<div class="tabContentItem">
-							<div class="innertabContentItem">
-								222
-							</div>
-						</div>
-						<div class="tabContentItem">
-							<div class="innertabContentItem">
-								333
+					</div>
+					
+					<div class="sliderContainer section">
+						<div class="innerSection">
+							<h2>Featured Products</h2>
+
+							<div class="productSlider slick">
+								<div>
+									<span class="productCard">
+										<a class="productCardBody" href="#">
+											<div class="productThumbnail"><div class="imgBox"><span class="ghost"></span><img data-lazy="http://dummyimage.com/100x100/ccc/fff" data-original="http://dummyimage.com/100x100/ccc/fff"></div></div>
+											<span class="productDesc">
+												<span class="productName">Pasta Machine</span>
+												<span class="productBrand">Jamie Oliver</span>
+												<span class="productPrice original dollar">1234.8</span>
+												<span class="productPrice large discounted dollar">28888.8</span>
+											</span>
+											<span class="flagHolder">
+												<span class="flag hook periodic">Periodic</span>
+												<span class="flag hook bundleup">Bundle Up</span>
+												<span class="flag hook bundle">Bundle</span>
+											</span>
+										</a>
+										<span class="previewBtn">Preview</span>
+									</span>
+								</div>
+								<div>
+									<span class="productCard">
+										<a class="productCardBody" href="#">
+											<div class="productThumbnail"><div class="imgBox"><span class="ghost"></span><img data-lazy="http://dummyimage.com/1000x200/ccc/fff" data-original="http://dummyimage.com/1000x200/ccc/fff"></div></div>
+											<span class="productDesc">
+												<span class="productName">Pasta Machine</span>
+												<span class="productBrand">Jamie Oliver</span>
+												<span class="productPrice original">8,888.8</span>
+												<span class="productPrice large discounted">2,888.8</span>
+											</span>
+											<span class="flagHolder">
+												<span class="flag hook periodic">Periodic</span>
+												<span class="flag hook bundleup">Bundle Up</span>
+												<span class="flag hook bundle">Bundle</span>
+											</span>
+										</a>
+										<span class="previewBtn">Preview</span>
+									</span>
+								</div>
+								<div>
+									<span class="productCard">
+										<a class="productCardBody" href="#">
+											<div class="productThumbnail"><div class="imgBox"><span class="ghost"></span><img data-lazy="http://dummyimage.com/200x1000/ccc/fff" data-original="http://dummyimage.com/200x1000/ccc/fff"></div></div>
+											<span class="productDesc">
+												<span class="productName">Pasta Machine</span>
+												<span class="productBrand">Jamie Oliver</span>
+												<span class="productPrice original">8,888.8</span>
+												<span class="productPrice large discounted">2,888.8</span>
+											</span>
+											<span class="flagHolder">
+												<span class="flag hook periodic">Periodic</span>
+												<span class="flag hook bundleup">Bundle Up</span>
+												<span class="flag hook bundle">Bundle</span>
+											</span>
+										</a>
+										<span class="previewBtn">Preview</span>
+									</span>
+								</div>
+								<div>
+									<span class="productCard">
+										<a class="productCardBody" href="#">
+											<div class="productThumbnail"><div class="imgBox"><span class="ghost"></span><img data-lazy="http://dummyimage.com/200x200/ccc/fff" data-original="http://dummyimage.com/200x200/ccc/fff"></div></div>
+											<span class="productDesc">
+												<span class="productName">Pasta Machine</span>
+												<span class="productBrand">Jamie Oliver</span>
+												<span class="productPrice original">8,888.8</span>
+												<span class="productPrice large discounted">2,888.8</span>
+											</span>
+											<span class="flagHolder">
+												<span class="flag hook periodic">Periodic</span>
+												<span class="flag hook bundleup">Bundle Up</span>
+												<span class="flag hook bundle">Bundle</span>
+											</span>
+										</a>
+										<span class="previewBtn">Preview</span>
+									</span>
+								</div>
+								<div>
+									<span class="productCard">
+										<a class="productCardBody" href="#">
+											<div class="productThumbnail"><div class="imgBox"><span class="ghost"></span><img data-lazy="http://dummyimage.com/200x200/ccc/fff" data-original="http://dummyimage.com/200x200/ccc/fff"></div></div>
+											<span class="productDesc">
+												<span class="productName">Pasta Machine</span>
+												<span class="productBrand">Jamie Oliver</span>
+												<span class="productPrice original">8,888.8</span>
+												<span class="productPrice large discounted">2,888.8</span>
+											</span>
+											<span class="flagHolder">
+												<span class="flag hook periodic">Periodic</span>
+												<span class="flag hook hook bundleup">Bundle Up</span>
+												<span class="flag hook bundle">Bundle</span>
+											</span>
+										</a>
+										<span class="previewBtn">Preview</span>
+									</span>
+								</div>
+								<div>
+									<span class="productCard">
+										<a class="productCardBody" href="#">
+											<div class="productThumbnail"><div class="imgBox"><span class="ghost"></span><img data-lazy="http://dummyimage.com/200x200/ccc/fff" data-original="http://dummyimage.com/200x200/ccc/fff"></div></div>
+											<span class="productDesc">
+												<span class="productName">Pasta Machine</span>
+												<span class="productBrand">Jamie Oliver</span>
+												<span class="productPrice original">8,888.8</span>
+												<span class="productPrice large discounted">2,888.8</span>
+											</span>
+											<span class="flagHolder">
+												<span class="flag hook periodic">Periodic</span>
+												<span class="flag hook bundleup">Bundle Up</span>
+												<span class="flag hook bundle">Bundle</span>
+											</span>
+										</a>
+										<span class="previewBtn">Preview</span>
+									</span>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
 
-		<!--#include file="include/footer.html"-->
-		<!--#include file="include/popup.html"-->
+			<!--#include file="include/footer.html"-->
+			<!--#include file="include/popup.html"-->
+		</div>
 	</div>
 	
 	<!-- JS -->
 	<!--#include file="include/include_js.html"-->
 	<script type="text/javascript">
-		require(['home'], function(home){
-			home.init();
-		});
+       require(['common', 'home'], function(common, home){
+            common.init(function(){
+                home.init();
+            });
+       });
 	</script>
 </body>
 </html>

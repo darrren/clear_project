@@ -247,10 +247,10 @@ pre {
 .hide,
 .desktop .onlyM,
 .mobile .onlyD {
-  display: none; }
+  display: none !important; }
 
 .block {
-  display: block; }
+  display: block !important; }
 
 .inlineBlock {
   display: inline-block !important;
@@ -339,6 +339,572 @@ a {
 /****************************************/
 /**************** HEADER ****************/
 /****************************************/
+.header {
+  position: relative;
+  z-index: 2;
+  background-color: #fff; }
+  .desktop .header {
+    border-bottom: 3px solid #00919f; }
+  .tablet .header,
+  .mobile .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%; }
+  .header .innerHeader {
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box; }
+    .desktop .header .innerHeader {
+      width: 980px; }
+  .header .menuDim {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.7);
+    visibility: hidden;
+    z-index: 1; }
+  .desktop .header .headerTop {
+    border-bottom: 1px solid #e8e8e8; }
+  .header .headerTop .innerHeader {
+    position: relative;
+    background-color: #fff;
+    z-index: 2; }
+    .desktop .header .headerTop .innerHeader {
+      height: 120px; }
+    .tablet .header .headerTop .innerHeader,
+    .mobile .header .headerTop .innerHeader {
+      padding: 0;
+      border-bottom: 1px solid #d8d8d8; }
+    .header .headerTop .innerHeader .mBtn {
+      float: left; }
+      .header .headerTop .innerHeader .mBtn .menuBtn {
+        display: inline-block;
+        *display: inline;
+        *zoom: 1;
+        vertical-align: top;
+        position: relative;
+        width: 48px;
+        height: 48px;
+        margin-left: 1px;
+        z-index: 2; }
+        .header .headerTop .innerHeader .mBtn .menuBtn .bg {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 0;
+          height: 100%;
+          background-color: #fff;
+          z-index: 1; }
+        .header .headerTop .innerHeader .mBtn .menuBtn .line {
+          position: absolute;
+          width: 0px;
+          height: 0px; }
+          .header .headerTop .innerHeader .mBtn .menuBtn .line.l1 {
+            top: 32%;
+            left: 20%;
+            z-index: 2; }
+          .header .headerTop .innerHeader .mBtn .menuBtn .line.l2 {
+            top: 49%;
+            left: 20%;
+            z-index: 2; }
+          .header .headerTop .innerHeader .mBtn .menuBtn .line.l3 {
+            top: 66%;
+            left: 20%; }
+          .header .headerTop .innerHeader .mBtn .menuBtn .line span {
+            position: absolute;
+            background-color: #3c3c3c;
+            border-radius: 10px;
+            width: 0;
+            height: 3px; }
+    .header .headerTop .innerHeader .logo {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      opacity: 0;
+      margin: -25px 0 0 -105px; }
+      .desktop .header .headerTop .innerHeader .logo {
+        -webkit-transform: translate3d(0, -10px, 0);
+                transform: translate3d(0, -10px, 0); }
+      .tablet .header .headerTop .innerHeader .logo,
+      .mobile .header .headerTop .innerHeader .logo {
+        top: 6px;
+        margin: 0 0 0 -52px;
+        -webkit-transform: translate3d(0, -5px, 0);
+                transform: translate3d(0, -5px, 0); }
+      .header .headerTop .innerHeader .logo a {
+        display: block; }
+        .tablet .header .headerTop .innerHeader .logo a,
+        .mobile .header .headerTop .innerHeader .logo a {
+          width: 105px; }
+        .tablet .header .headerTop .innerHeader .logo a img,
+        .mobile .header .headerTop .innerHeader .logo a img {
+          width: 100%; }
+  .tablet .header .headerBot,
+  .mobile .header .headerBot {
+    position: absolute;
+    top: 0;
+    left: 0;
+    /*width:89%;*/
+    height: 100%;
+    -webkit-transform: translate3d(-100%, 0, 0);
+            transform: translate3d(-100%, 0, 0); }
+  .header .headerBot .subMenuBg {
+    position: absolute;
+    top: 100%;
+    left: -10%;
+    width: 120%;
+    z-index: 1;
+    background-color: #ededed;
+    box-shadow: 0px 5px 15px -5px #999; }
+  .header .headerBot .innerHeader {
+    background-color: #fff; }
+    .tablet .header .headerBot .innerHeader,
+    .mobile .header .headerBot .innerHeader {
+      position: relative;
+      padding: 0;
+      height: 100%;
+      overflow: auto;
+      margin: 0;
+      -webkit-overflow-scrolling: touch;
+      background-color: #00919f; }
+    .header .headerBot .innerHeader .menuContainer {
+      position: relative; }
+      .header .headerBot .innerHeader .menuContainer .userContainer {
+        padding: 30px 5% 20px 10%; }
+        .header .headerBot .innerHeader .menuContainer .userContainer a {
+          display: block; }
+        .header .headerBot .innerHeader .menuContainer .userContainer .ico {
+          display: inline-block;
+          *display: inline;
+          *zoom: 1;
+          color: #fff;
+          font-size: 60px; }
+        .header .headerBot .innerHeader .menuContainer .userContainer .userInfo {
+          display: inline-block;
+          *display: inline;
+          *zoom: 1;
+          padding-left: 5%; }
+          .header .headerBot .innerHeader .menuContainer .userContainer .userInfo span.text {
+            display: block;
+            color: #fff;
+            font-size: 17px;
+            margin: 5px 0; }
+      .header .headerBot .innerHeader .menuContainer .menuItemsBox {
+        text-align: center; }
+        .header .headerBot .innerHeader .menuContainer .menuItemsBox .menuItem {
+          display: inline-block;
+          *display: inline;
+          *zoom: 1;
+          vertical-align: top; }
+          .desktop .header .headerBot .innerHeader .menuContainer .menuItemsBox .menuItem {
+            margin-left: 80px; }
+          .tablet .header .headerBot .innerHeader .menuContainer .menuItemsBox .menuItem,
+          .mobile .header .headerBot .innerHeader .menuContainer .menuItemsBox .menuItem {
+            display: block;
+            background-color: #00919f;
+            border-bottom: 1px solid #d8d8d8; }
+          .header .headerBot .innerHeader .menuContainer .menuItemsBox .menuItem.first {
+            margin-left: 0; }
+          .header .headerBot .innerHeader .menuContainer .menuItemsBox .menuItem.active .mainCat {
+            color: #00919f; }
+          .header .headerBot .innerHeader .menuContainer .menuItemsBox .menuItem:first-child {
+            margin-left: 0; }
+          .header .headerBot .innerHeader .menuContainer .menuItemsBox .menuItem .mainCat {
+            display: block;
+            font-size: 13px;
+            padding: 15px 12px 14px 12px;
+            letter-spacing: 1px;
+            -webkit-transition: color 0.5s ease;
+            transition: color 0.5s ease; }
+            .desktop .header .headerBot .innerHeader .menuContainer .menuItemsBox .menuItem .mainCat {
+              text-transform: uppercase;
+              opacity: 0;
+              -webkit-transform: translate3d(-10px, 0, 0);
+                      transform: translate3d(-10px, 0, 0); }
+            .tablet .header .headerBot .innerHeader .menuContainer .menuItemsBox .menuItem .mainCat,
+            .mobile .header .headerBot .innerHeader .menuContainer .menuItemsBox .menuItem .mainCat {
+              position: relative;
+              color: #fff;
+              font-size: 17px;
+              padding: 20px 20px 20px 10%; }
+            .desktop .header .headerBot .innerHeader .menuContainer .menuItemsBox .menuItem .mainCat:hover {
+              color: #00919f; }
+            .header .headerBot .innerHeader .menuContainer .menuItemsBox .menuItem .mainCat .ico {
+              display: inline-block;
+              *display: inline;
+              *zoom: 1;
+              color: #fff; }
+            .tablet .header .headerBot .innerHeader .menuContainer .menuItemsBox .menuItem .mainCat strong,
+            .mobile .header .headerBot .innerHeader .menuContainer .menuItemsBox .menuItem .mainCat strong {
+              display: inline-block;
+              *display: inline;
+              *zoom: 1;
+              margin-left: 10px; }
+            .tablet .header .headerBot .innerHeader .menuContainer .menuItemsBox .menuItem .mainCat.noIco strong,
+            .mobile .header .headerBot .innerHeader .menuContainer .menuItemsBox .menuItem .mainCat.noIco strong {
+              margin-left: 0px; }
+            .header .headerBot .innerHeader .menuContainer .menuItemsBox .menuItem .mainCat .arrow {
+              position: absolute;
+              top: 20px;
+              right: 20px;
+              font-size: 21px; }
+              .header .headerBot .innerHeader .menuContainer .menuItemsBox .menuItem .mainCat .arrow:before {
+                font-weight: bold; }
+          .tablet .header .headerBot .innerHeader .menuContainer .menuItemsBox .menuItem.opening .subMenuItemsContainer .innerSubMenuItemsContainer,
+          .mobile .header .headerBot .innerHeader .menuContainer .menuItemsBox .menuItem.opening .subMenuItemsContainer .innerSubMenuItemsContainer {
+            margin-top: 0; }
+          .tablet .header .headerBot .innerHeader .menuContainer .menuItemsBox .menuItem.opening .subMenuItemsContainer .innerSubMenuItemsContainer .subMenuItem,
+          .mobile .header .headerBot .innerHeader .menuContainer .menuItemsBox .menuItem.opening .subMenuItemsContainer .innerSubMenuItemsContainer .subMenuItem {
+            background-color: #03727d;
+            border-top: 1px solid #439198; }
+          .tablet .header .headerBot .innerHeader .menuContainer .menuItemsBox .menuItem.opening .subMenuItemsContainer .innerSubMenuItemsContainer .subMenuItem a,
+          .mobile .header .headerBot .innerHeader .menuContainer .menuItemsBox .menuItem.opening .subMenuItemsContainer .innerSubMenuItemsContainer .subMenuItem a {
+            color: #fff; }
+          .tablet .header .headerBot .innerHeader .menuContainer .menuItemsBox .menuItem.opening .subMenuItemsContainer .innerSubMenuItemsContainer.customLayout1 .subMenuItem a .textBox .innerTextBox,
+          .mobile .header .headerBot .innerHeader .menuContainer .menuItemsBox .menuItem.opening .subMenuItemsContainer .innerSubMenuItemsContainer.customLayout1 .subMenuItem a .textBox .innerTextBox {
+            color: #fff; }
+          .header .headerBot .innerHeader .menuContainer .menuItemsBox .menuItem .subMenuItemsContainer {
+            position: relative;
+            width: 100%;
+            overflow: hidden; }
+            .desktop .header .headerBot .innerHeader .menuContainer .menuItemsBox .menuItem .subMenuItemsContainer {
+              position: absolute;
+              top: 100%;
+              left: 0;
+              visibility: hidden; }
+            .header .headerBot .innerHeader .menuContainer .menuItemsBox .menuItem .subMenuItemsContainer .innerSubMenuItemsContainer {
+              margin: 0 auto; }
+              .desktop .header .headerBot .innerHeader .menuContainer .menuItemsBox .menuItem .subMenuItemsContainer .innerSubMenuItemsContainer {
+                width: 780px;
+                padding: 35px 0 15px; }
+              .tablet .header .headerBot .innerHeader .menuContainer .menuItemsBox .menuItem .subMenuItemsContainer .innerSubMenuItemsContainer,
+              .mobile .header .headerBot .innerHeader .menuContainer .menuItemsBox .menuItem .subMenuItemsContainer .innerSubMenuItemsContainer {
+                margin-top: -5px;
+                -webkit-transition: margin-top 0.7s ease;
+                transition: margin-top 0.7s ease; }
+              .header .headerBot .innerHeader .menuContainer .menuItemsBox .menuItem .subMenuItemsContainer .innerSubMenuItemsContainer .subMenuItem {
+                display: inline-block;
+                *display: inline;
+                *zoom: 1;
+                vertical-align: top; }
+                .desktop .header .headerBot .innerHeader .menuContainer .menuItemsBox .menuItem .subMenuItemsContainer .innerSubMenuItemsContainer .subMenuItem {
+                  width: 33%;
+                  padding-bottom: 25px;
+                  text-align: center; }
+                .tablet .header .headerBot .innerHeader .menuContainer .menuItemsBox .menuItem .subMenuItemsContainer .innerSubMenuItemsContainer .subMenuItem,
+                .mobile .header .headerBot .innerHeader .menuContainer .menuItemsBox .menuItem .subMenuItemsContainer .innerSubMenuItemsContainer .subMenuItem {
+                  display: block;
+                  background-color: #09636a;
+                  border-top: 1px solid #2f777e;
+                  -webkit-transition: background-color 0.7s ease, border-color 0.7s ease;
+                  transition: background-color 0.7s ease, border-color 0.7s ease; }
+                  .tablet .header .headerBot .innerHeader .menuContainer .menuItemsBox .menuItem .subMenuItemsContainer .innerSubMenuItemsContainer .subMenuItem:first-child,
+                  .mobile .header .headerBot .innerHeader .menuContainer .menuItemsBox .menuItem .subMenuItemsContainer .innerSubMenuItemsContainer .subMenuItem:first-child {
+                    border-top: 0; }
+                .header .headerBot .innerHeader .menuContainer .menuItemsBox .menuItem .subMenuItemsContainer .innerSubMenuItemsContainer .subMenuItem a {
+                  display: block;
+                  color: #333;
+                  font-size: 18px;
+                  line-height: 1.5em; }
+                  .tablet .header .headerBot .innerHeader .menuContainer .menuItemsBox .menuItem .subMenuItemsContainer .innerSubMenuItemsContainer .subMenuItem a,
+                  .mobile .header .headerBot .innerHeader .menuContainer .menuItemsBox .menuItem .subMenuItemsContainer .innerSubMenuItemsContainer .subMenuItem a {
+                    color: #539197;
+                    padding: 20px 20px 20px 40px;
+                    font-size: 17px;
+                    font-weight: 300;
+                    -webkit-transition: color 0.7s ease;
+                    transition: color 0.7s ease; }
+                  .desktop .header .headerBot .innerHeader .menuContainer .menuItemsBox .menuItem .subMenuItemsContainer .innerSubMenuItemsContainer .subMenuItem a:hover {
+                    font-weight: 700; }
+              .desktop .header .headerBot .innerHeader .menuContainer .menuItemsBox .menuItem .subMenuItemsContainer .innerSubMenuItemsContainer.customLayout1 {
+                width: 102%; }
+              .desktop .header .headerBot .innerHeader .menuContainer .menuItemsBox .menuItem .subMenuItemsContainer .innerSubMenuItemsContainer.customLayout1 .subMenuItem {
+                width: 32%;
+                margin-right: 1%; }
+              .header .headerBot .innerHeader .menuContainer .menuItemsBox .menuItem .subMenuItemsContainer .innerSubMenuItemsContainer.customLayout1 .subMenuItem a {
+                position: relative;
+                display: block; }
+                .header .headerBot .innerHeader .menuContainer .menuItemsBox .menuItem .subMenuItemsContainer .innerSubMenuItemsContainer.customLayout1 .subMenuItem a .dim {
+                  display: block;
+                  width: 100%;
+                  height: 100%;
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  opacity: 0;
+                  border: 0px solid #000;
+                  box-sizing: border-box;
+                  background-color: #000;
+                  -webkit-transition: opacity 0.6s ease;
+                  transition: opacity 0.6s ease; }
+                .desktop .header .headerBot .innerHeader .menuContainer .menuItemsBox .menuItem .subMenuItemsContainer .innerSubMenuItemsContainer.customLayout1 .subMenuItem a:hover .dim {
+                  opacity: 0.3; }
+                .header .headerBot .innerHeader .menuContainer .menuItemsBox .menuItem .subMenuItemsContainer .innerSubMenuItemsContainer.customLayout1 .subMenuItem a img {
+                  display: block;
+                  width: 100%; }
+                .desktop .header .headerBot .innerHeader .menuContainer .menuItemsBox .menuItem .subMenuItemsContainer .innerSubMenuItemsContainer.customLayout1 .subMenuItem a .textBox {
+                  position: absolute;
+                  top: 0;
+                  left: 0;
+                  width: 100%;
+                  height: 100%; }
+                .header .headerBot .innerHeader .menuContainer .menuItemsBox .menuItem .subMenuItemsContainer .innerSubMenuItemsContainer.customLayout1 .subMenuItem a .textBox .innerTextBox {
+                  display: inline-block;
+                  *display: inline;
+                  *zoom: 1;
+                  color: #fff;
+                  letter-spacing: 1px; }
+                  .desktop .header .headerBot .innerHeader .menuContainer .menuItemsBox .menuItem .subMenuItemsContainer .innerSubMenuItemsContainer.customLayout1 .subMenuItem a .textBox .innerTextBox {
+                    font-size: 28px;
+                    text-transform: uppercase; }
+                  .tablet .header .headerBot .innerHeader .menuContainer .menuItemsBox .menuItem .subMenuItemsContainer .innerSubMenuItemsContainer.customLayout1 .subMenuItem a .textBox .innerTextBox,
+                  .mobile .header .headerBot .innerHeader .menuContainer .menuItemsBox .menuItem .subMenuItemsContainer .innerSubMenuItemsContainer.customLayout1 .subMenuItem a .textBox .innerTextBox {
+                    color: #467377;
+                    -webkit-transition: color 0.7s ease;
+                    transition: color 0.7s ease; }
+                  .tablet .header .headerBot .innerHeader .menuContainer .menuItemsBox .menuItem .subMenuItemsContainer .innerSubMenuItemsContainer.customLayout1 .subMenuItem a .textBox .innerTextBox .txt1,
+                  .mobile .header .headerBot .innerHeader .menuContainer .menuItemsBox .menuItem .subMenuItemsContainer .innerSubMenuItemsContainer.customLayout1 .subMenuItem a .textBox .innerTextBox .txt1 {
+                    font-weight: 300;
+                    padding-right: 5px; }
+                  .tablet .header .headerBot .innerHeader .menuContainer .menuItemsBox .menuItem .subMenuItemsContainer .innerSubMenuItemsContainer.customLayout1 .subMenuItem a .textBox .innerTextBox .txt2,
+                  .mobile .header .headerBot .innerHeader .menuContainer .menuItemsBox .menuItem .subMenuItemsContainer .innerSubMenuItemsContainer.customLayout1 .subMenuItem a .textBox .innerTextBox .txt2 {
+                    font-weight: 300; }
+                .desktop .header .headerBot .innerHeader .menuContainer .menuItemsBox .menuItem .subMenuItemsContainer .innerSubMenuItemsContainer.customLayout1 .subMenuItem a .textBox.spo .txt1 {
+                  font-size: 20px; }
+                .desktop .header .headerBot .innerHeader .menuContainer .menuItemsBox .menuItem .subMenuItemsContainer .innerSubMenuItemsContainer.customLayout1 .subMenuItem a .textBox.spo .txt2 {
+                  font-size: 43px; }
+          .header .headerBot .innerHeader .menuContainer .menuItemsBox .menuItem.loginBoxBtn, .header .headerBot .innerHeader .menuContainer .menuItemsBox .menuItem.logoutBoxBtn {
+            text-align: center; }
+            .header .headerBot .innerHeader .menuContainer .menuItemsBox .menuItem.loginBoxBtn .ico, .header .headerBot .innerHeader .menuContainer .menuItemsBox .menuItem.logoutBoxBtn .ico {
+              font-size: 22px; }
+          .header .headerBot .innerHeader .menuContainer .menuItemsBox .menuItem.brands .subMenuItemsContainer .innerSubMenuItemsContainer .subMenuItem {
+            text-align: center; }
+            .header .headerBot .innerHeader .menuContainer .menuItemsBox .menuItem.brands .subMenuItemsContainer .innerSubMenuItemsContainer .subMenuItem a {
+              padding-right: 20px; }
+      .header .headerBot .innerHeader .menuContainer .rewardBtn {
+        position: absolute;
+        top: 0;
+        right: 0;
+        opacity: 0;
+        -webkit-transition: opacity 0.3s ease;
+        transition: opacity 0.3s ease; }
+        .header .headerBot .innerHeader .menuContainer .rewardBtn img {
+          display: block; }
+        .desktop .header .headerBot .innerHeader .menuContainer .rewardBtn:hover,
+        .tablet .header .headerBot .innerHeader .menuContainer .rewardBtn:active,
+        .mobile .header .headerBot .innerHeader .menuContainer .rewardBtn:active {
+          opacity: 0.7 !important; }
+      .header .headerBot .innerHeader .menuContainer .langBox {
+        padding: 30px 0; }
+        .header .headerBot .innerHeader .menuContainer .langBox a {
+          display: inline-block;
+          *display: inline;
+          *zoom: 1;
+          width: 50%;
+          box-sizing: border-box;
+          color: #8db5b9;
+          text-align: center;
+          padding: 30px 0; }
+          .header .headerBot .innerHeader .menuContainer .langBox a:first-child {
+            border-right: 1px solid #d8d8d8; }
+          .header .headerBot .innerHeader .menuContainer .langBox a.active {
+            color: #fff; }
+      .header .headerBot .innerHeader .menuContainer .link {
+        padding-bottom: 50px; }
+        .header .headerBot .innerHeader .menuContainer .link a {
+          display: block;
+          color: #fff;
+          font-size: 13px;
+          font-weight: 300;
+          text-align: center;
+          margin-bottom: 20px; }
+  .header .menuArrow {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 14px 5px 14px;
+    border-color: transparent transparent #ededed transparent; }
+    .header .menuArrow img {
+      display: block; }
+
+/****************************************/
+/**************** FOOTER ****************/
+/****************************************/
+.bttBox {
+  position: fixed;
+  bottom: 60px;
+  left: 0;
+  width: 100%;
+  z-index: 1; }
+  .bttBox .innerSection {
+    position: relative; }
+    .tablet .bttBox .innerSection,
+    .mobile .bttBox .innerSection {
+      width: auto !important;
+      margin: 0 10px !important; }
+    .bttBox .innerSection .backToTopBtn {
+      position: absolute;
+      top: 0;
+      right: 0;
+      visibility: hidden; }
+      .bttBox .innerSection .backToTopBtn a {
+        padding: 15px; }
+        .bttBox .innerSection .backToTopBtn a .ico {
+          padding: 0;
+          font-size: 20px; }
+
+.footer {
+  color: #fff; }
+  .tablet .footer,
+  .mobile .footer {
+    line-height: 1.2em; }
+  .footer p {
+    color: #fff; }
+  .footer a {
+    color: #fff; }
+  .footer .innerFooter {
+    margin: 0 auto;
+    box-sizing: border-box; }
+    .desktop .footer .innerFooter {
+      width: 980px; }
+  .footer .footerTop {
+    background-color: #3c3c3c; }
+    .footer .footerTop .innerFooter {
+      padding: 40px 0 40px;
+      text-align: center; }
+      .tablet .footer .footerTop .innerFooter,
+      .mobile .footer .footerTop .innerFooter {
+        padding: 20px 10px;
+        text-align: center; }
+      .footer .footerTop .innerFooter .followBtn {
+        display: inline-block;
+        *display: inline;
+        *zoom: 1;
+        text-transform: uppercase;
+        font-size: 15px;
+        margin-bottom: 20px; }
+        .footer .footerTop .innerFooter .followBtn span {
+          display: inline-block;
+          *display: inline;
+          *zoom: 1; }
+        .footer .footerTop .innerFooter .followBtn .icon-fb {
+          display: inline-block;
+          *display: inline;
+          *zoom: 1;
+          font-size: 19px;
+          margin-left: 5px;
+          color: #fff; }
+      .desktop .footer .footerTop .innerFooter .sitemap {
+        display: inline-block;
+        *display: inline;
+        *zoom: 1;
+        vertical-align: top;
+        width: 60%;
+        text-align: left; }
+      .footer .footerTop .innerFooter .sitemap .col {
+        display: inline-block;
+        *display: inline;
+        *zoom: 1;
+        vertical-align: top;
+        width: 33%; }
+        .footer .footerTop .innerFooter .sitemap .col .mainItem {
+          display: block;
+          margin-bottom: 15px;
+          margin-top: 15px; }
+          .footer .footerTop .innerFooter .sitemap .col .mainItem:first-child {
+            margin-top: 0; }
+        .footer .footerTop .innerFooter .sitemap .col .subItems li {
+          margin-top: 15px; }
+          .footer .footerTop .innerFooter .sitemap .col .subItems li:first-child {
+            margin-top: 0; }
+          .footer .footerTop .innerFooter .sitemap .col .subItems li a {
+            display: block;
+            font-size: 13px;
+            color: #ddd;
+            -webkit-transition: color 0.4s ease;
+            transition: color 0.4s ease; }
+            .desktop .footer .footerTop .innerFooter .sitemap .col .subItems li a:hover {
+              color: #00919f; }
+      .desktop .footer .footerTop .innerFooter .contact {
+        display: inline-block;
+        *display: inline;
+        *zoom: 1;
+        vertical-align: top;
+        padding: 10px 0 20px 50px;
+        border-left: 1px solid #6c6c6c;
+        text-align: left; }
+      .footer .footerTop .innerFooter .contact .title {
+        padding-bottom: 20px; }
+        .tablet .footer .footerTop .innerFooter .contact .title,
+        .mobile .footer .footerTop .innerFooter .contact .title {
+          padding-bottom: 10px; }
+      .tablet .footer .footerTop .innerFooter .contact table,
+      .mobile .footer .footerTop .innerFooter .contact table {
+        width: 100%; }
+      .footer .footerTop .innerFooter .contact table td {
+        padding-bottom: 5px; }
+        .footer .footerTop .innerFooter .contact table td p, .footer .footerTop .innerFooter .contact table td a, .footer .footerTop .innerFooter .contact table td span {
+          font-size: 13px;
+          color: #ddd; }
+        .footer .footerTop .innerFooter .contact table td a {
+          text-decoration: underline;
+          -webkit-transition: color 0.4s ease;
+          transition: color 0.4s ease; }
+          .desktop .footer .footerTop .innerFooter .contact table td a:hover {
+            color: #00919f;
+            text-decoration: underline; }
+      .footer .footerTop .innerFooter .contact .ico {
+        padding-right: 10px; }
+  .footer .footerBot {
+    background-color: #333; }
+    .footer .footerBot .innerFooter {
+      padding: 15px 0;
+      font-size: 12px; }
+      .tablet .footer .footerBot .innerFooter,
+      .mobile .footer .footerBot .innerFooter {
+        padding: 15px 10px;
+        text-align: center; }
+      .footer .footerBot .innerFooter p, .footer .footerBot .innerFooter a {
+        color: #ddd;
+        font-size: 12px; }
+      .footer .footerBot .innerFooter a {
+        -webkit-transition: color 0.4s ease;
+        transition: color 0.4s ease; }
+        .desktop .footer .footerBot .innerFooter a:hover {
+          color: #fff; }
+      .desktop .footer .footerBot .innerFooter .copyright {
+        float: left; }
+      .footer .footerBot .innerFooter .link {
+        float: right; }
+        .footer .footerBot .innerFooter .link a {
+          display: inline-block;
+          *display: inline;
+          *zoom: 1; }
+        .footer .footerBot .innerFooter .link span {
+          display: inline-block;
+          *display: inline;
+          *zoom: 1; }
+
+/**********************************************/
+/**************** Main Content ****************/
+/**********************************************/
+.wrapper .innerWrapper .container {
+  padding-top: 49px; }
+
+.wrapper .section .innerSection {
+  margin: 0 auto;
+  box-sizing: border-box; }
+  .desktop .wrapper .section .innerSection {
+    width: 980px; }
+  .tablet .wrapper .section .innerSection {
+    width: 750px; }
+
 /*******************************************/
 /**************** Accordion ****************/
 /*******************************************/
@@ -519,3 +1085,25 @@ button.mfp-close .icon-close {
     .mobile .popup .innerPopup {
       padding: 20px 10px 30px;
       margin: 0; }
+
+/****************************************/
+/**************** SLIDER ****************/
+/****************************************/
+.slick-slider {
+  margin-bottom: 0; }
+
+.slick-arrow {
+  font-size: 24px;
+  width: 24px;
+  height: 24px;
+  -webkit-transition: opacity 0.5s ease, visibility 0s ease 0.5s;
+  transition: opacity 0.5s ease, visibility 0s ease 0.5s; }
+  .slick-arrow:before {
+    color: #000; }
+  .slick-arrow.slick-prev {
+    left: -40px; }
+  .slick-arrow.slick-next {
+    right: -40px; }
+  .slick-arrow.slick-disabled {
+    opacity: 0;
+    visibility: hidden; }

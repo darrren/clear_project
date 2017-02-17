@@ -1,0 +1,443 @@
+@import "mixin";
+
+.home {
+	
+	.slick-list {
+			height:100%;
+	}
+
+	.slick-track {
+		height:100%;
+	}
+
+	.slick-arrow {
+		display:none !important;
+	}
+
+	.slick-slide {
+		position:relative;
+
+		img {
+			position:relative;
+			top:0; left:0;
+
+			.desktop & {
+				// left:50%;
+				// margin:0 0 0 -840px;
+				margin:0 auto;
+			}
+
+			.tablet &,
+			.mobile & {
+				width:100%;
+			}
+		}
+
+		.textBox {
+			position:absolute;
+			bottom:0; left:0;
+			width:100%; height:150px;
+			text-align:center;
+
+			.tablet &,
+			.mobile & {
+				height:100px;
+			}
+
+			.bg {
+				position:absolute;
+				top:0; left:0;
+				width:100%; height:100%;
+				background-color:#666;
+				opacity:0;
+				visibility:hidden;
+				// background:url(../images/front/banner-des-bg.png) center repeat-y;
+			}
+
+			.innerTextBox {
+				@include inline-block();
+				position:relative;
+				padding-bottom:30px;
+
+				.tablet &,
+				.mobile & {
+					padding:0 10px 15px;
+				}
+
+				p {
+					color:#fff;
+					opacity:0;
+
+					&.head {
+						font-size:24px;
+						text-transform:uppercase;
+						padding-bottom:3px;
+						letter-spacing:1px;
+
+						.tablet &,
+						.mobile & {
+							font-size:20px;
+						}
+					}
+
+					&.des {
+						font-size:18px;
+						font-weight:300;
+						line-height:1.5em;
+						letter-spacing:1px;
+
+						.tablet &,
+						.mobile & {
+							font-size:13px;
+							line-height:1.3em;
+						}
+					}
+				}
+			}
+		}
+
+		&.slick-active {
+
+		}
+	}
+
+	.slick-dots {
+		bottom:30px; left:0;
+
+		.tablet &,
+		.mobile & {
+			bottom:15px;
+		}
+
+		li {
+			width:120px; height:3px;
+			margin:0 6px;
+			background-color:#999;
+			transition:background-color 0.5s ease;
+
+			.tablet &,
+			.mobile & {
+				width:50px;
+			}
+
+			&.slick-active {
+				background-color:#fff;
+			}
+
+			button {
+				width:100%; height:100%;
+				padding:0;
+
+				&:before {
+					content:none;
+				}
+			}
+		}
+	}
+	
+	.sliderContainer {
+
+		.innerSection {
+			padding-top:50px;
+
+			.tablet &,
+			.mobile & {
+				padding-top:30px;
+			}
+
+			h2 {
+				text-transform:uppercase;
+				text-align:center;
+				padding-bottom:30px;
+				font-weight:900;
+
+				.tablet &,
+				.mobile & {
+					padding-bottom:20px;
+				}
+
+				.ico-hot {
+					vertical-align:middle;
+
+					.tablet &,
+					.mobile & {
+						width:25px;
+					}
+				}
+			}
+
+			.slick {
+				margin-bottom:30px;
+
+				.tablet &,
+				.mobile & {
+				    padding:0 15px 10px;
+					overflow:hidden;
+					overflow-x:auto;
+					white-space:nowrap;
+					-webkit-overflow-scrolling:touch;
+				}
+
+				&.device > div {
+
+					.tablet &,
+					.mobile & {
+						@include inline-block();
+						width:50%;
+
+						&:last-child {
+							
+						}
+
+						.viewmoreBox {
+							width:auto;
+						}
+					}
+				}
+
+				.slick-list {
+
+					.tablet &,
+					.mobile & {
+					    padding:0 15px;
+					}
+
+					.slick-track {
+
+						.slick-slide {
+							@include inline-block();
+							outline:none;
+							float:none;
+
+							.desktop & {
+								width:20%;
+							}
+						}
+					}
+				}
+
+				.viewmoreBox {
+					text-align:center;
+
+					a {
+						.tablet &,
+						.mobile & {
+							display:block;
+							padding:50px 10px 50px 20px;
+						}
+
+						.ico {
+							font-size:30px;
+						}
+					}
+				}
+			}
+		}
+
+		&.featuredContainer {
+
+			h2 {
+				font-size:22px;
+				color:#00919f;
+			}
+
+			.productSlider {
+
+				.productCardBody {
+					border-top:6px solid #00919f;
+				}
+			}
+		}
+
+		&.periodicContainer {
+
+			.innerSection {
+				padding-top:10px;
+				
+				h2 {
+					position:relative;
+					
+					.moreBtn {
+						position:absolute;
+						top:0; right:0;
+						font-size:14px;
+						text-transform:capitalize;
+						color:#333;
+						
+						.ico {
+							font-size:20px;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+
+/****************************************************/
+/**************** PRODUCT ITEM STYLE ****************/
+/****************************************************/
+.productCard {
+	@include inline-block;
+	position:relative;
+	margin:0 0 22px;
+	padding:0 4px;
+	box-sizing:border-box;
+	width:100%;
+
+	&:first-child {
+
+		.tablet &,
+		.mobile & {
+			// margin-left:3%;
+		}
+	}
+
+	// :last-child {
+	// 	margin-right:3%;
+	// }
+
+	.desktop & {
+	}
+
+	.tablet &,
+	.mobile & {
+		width:100%;
+		padding:0 2%;
+		margin:0 0 22px 0;
+		box-sizing:border-box;
+	}
+
+	.desktop &:hover,
+	.tablet &:active,
+	.mobile &:active {
+
+		.productCardBody {
+			background-color:#fafafa;
+		}
+	}
+
+	.productCardBody {
+		position:relative;
+		display:block;
+		font-size:16px;
+		border-style:solid;
+		border-color:#dadada;
+		border-width:1px;
+		outline:none;
+		transition:background-color 0.4s ease;
+
+		.productThumbnail {
+			position:relative;
+			display:block;
+			width:100%; height:0;
+			padding-bottom:100%;
+			text-align:center;
+//			background:url(/images/common/error_image.jpg) center no-repeat;
+			background-size:100% auto;
+
+			.tablet &,
+			.mobile & {
+				position:relative;
+				overflow:hidden;
+				height:0;
+				padding-bottom:100%;
+			}
+
+			.imgBox {
+				display:block;
+				position:absolute;
+				top:0; left:0;
+				width:100%; height:100%;
+			}
+
+			img {
+				@include inline-block();
+				max-width:100%;
+				max-height:100%;
+			}
+		}
+
+		.productDesc {
+			display:block;
+			height:190px;
+			padding:10px 0 0;
+
+			.desktop & {
+				height:200px;
+			}
+			
+//			.mobile & {
+//				height:160px;
+//			}
+
+			span {
+			}
+
+			.productName {
+				position:relative;
+				height:3em;
+				overflow:hidden;
+			}
+		}
+
+		.flagHolder {
+			position: absolute;
+			left: -3px;
+			top: 0;
+
+			.desktop & {
+				top:5px;
+			}
+
+			.flag {
+				display:block;
+
+				.desktop & {
+					margin:6px 0;
+				}
+
+				.tablet &,
+				.mobile & {
+					margin:4px 0;
+				}
+			}
+		}
+	}
+
+	.previewBtn {
+		display:block;
+		width:120px; height:40px;
+		margin:0 0 0 -60px;
+		position:absolute;
+		left:50%; bottom:-20px;
+		letter-spacing:1px;
+		line-height:40px;
+		color:#00919f;
+		text-align:center;
+		border-style:solid;
+		border-color:#999;
+		border-width:1px;
+		background-color:#fff;
+		cursor:pointer;
+		transition:color 0.4s ease, background-color 0.4s ease, border-color 0.4s ease;
+
+		.desktop &:hover,
+		.tablet &:active,
+		.mobile &:active {
+			color:#fff;
+			background-color:#00919f;
+			border-color:#00919f;
+		}
+
+		.desktop & {
+			font-size:13px;
+		}
+
+		.tablet &,
+		.mobile & {
+			font-size:12px;
+		}
+	}
+}

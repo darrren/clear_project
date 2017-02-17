@@ -4,7 +4,7 @@ var data = 'aaa';
 define(["test"], function(test){
 	return {
 		init: function(){
-			require(["magnificPopup"], function(magnificPopup){
+			require(["magnificPopup", "slick"], function(magnificPopup, slick){
 				data = 'bbb';
 				console.log(test.getValue());
 
@@ -30,6 +30,23 @@ define(["test"], function(test){
 //							}
 //						}
 //					});
+					
+                    slickInit({
+						selector: '.productSlider',
+						draggable: true,
+						speed: 400,
+						slidesToShow: 5,
+						slidesToScroll: 5,
+						responsive: [
+							{
+								breakpoint: 980,
+								settings: {
+									slidesToShow: 2,
+									slidesToScroll: 1
+								}
+							}
+						]
+					});
 				});
 			});
 			
