@@ -72,7 +72,7 @@ a {
 	.desktop & {
 		border-bottom:3px solid #00919f;
 	}
-	
+
 	.tablet &,
 	.mobile & {
 		position:fixed;
@@ -255,7 +255,7 @@ a {
 
 				.userContainer {
 					padding:30px 5% 20px 10%;
-					
+
 					a {
 						display:block;
 					}
@@ -333,7 +333,7 @@ a {
 								font-size:17px;
 								padding:20px 20px 20px 10%;
 							}
-							
+
 							.desktop &:hover {
 								color:#00919f;
 							}
@@ -951,14 +951,14 @@ a {
 /**************** Main Content ****************/
 /**********************************************/
 .wrapper {
-	
+
 	.innerWrapper {
-		
+
 		.container {
 			padding-top:49px;
 		}
 	}
-	
+
 	.section {
 
 		.innerSection {
@@ -1282,6 +1282,8 @@ button.mfp-close .icon-close {
 /**************** TABLE CHECKBOX STYLE ****************/
 /******************************************************/
 .checkboxStyle{
+	position:relative;
+	overflow:hidden;
 
 	.listBox {
 		width:100%;

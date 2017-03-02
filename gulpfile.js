@@ -1,9 +1,12 @@
 'use strict';
 
 var gulp			= require('gulp');
+var sourcemaps      = require('gulp-sourcemaps');
+var babel           = require("gulp-babel");
 var mainBowerFiles  = require('main-bower-files');
 var reqOptimize		= require('gulp-requirejs-optimize');
 var sass			= require('gulp-sass');
+var cleanCSS        = require('gulp-clean-css');
 var concat			= require('gulp-concat');
 var filter			= require('gulp-filter');
 var uglify			= require('gulp-uglify');
@@ -28,13 +31,13 @@ var path			= {
 gulp.task('bower', function() {
     gulp.src(mainBowerFiles('**/*.css'))
     .pipe(gulp.dest('./css/lib'));
-    
+
     gulp.src(mainBowerFiles('**/*.gif'))
     .pipe(gulp.dest('./css/lib'));
-    
+
     gulp.src(mainBowerFiles('**/fonts/*'))
     .pipe(gulp.dest('./css/lib/fonts'));
-    
+
     gulp.src(mainBowerFiles('**/*.js'))
     .pipe(filter(['**/*.js', '!**/require.js', '!**/domReady.js', '!**/requirejs-plugins/**/*.js']))
     .pipe(gulp.dest('./js/lib'));
@@ -58,7 +61,7 @@ gulp.task('browser-sync', ['requirejs', 'Iconfont', 'sass'], function () {
 				})
 			]
         },
-		open: false
+		open: true
 	});
 });
 
@@ -73,18 +76,26 @@ gulp.task('requirejs', function () {
 //			mainConfigFile: './js/main.js',
             optimize: "none"
         }))
-//		.pipe(uglify())
+        .pipe(sourcemaps.init())
+        .pipe(babel({
+            "presets": ["es2015", "babili"]
+        }))
+		.pipe(uglify())
 //		.pipe(concat("main.min.js"))
+        .pipe(sourcemaps.write("./maps"))
         .pipe(gulp.dest('./js'))
         .pipe(browserSync.reload({stream: true}));
 });
 
 gulp.task('sass', function () {
 	return gulp.src(path.css)
+        .pipe(sourcemaps.init())
         .pipe(plumber())
         .pipe(sass().on('error', sass.logError))
         .pipe(autoprefixer())
+        .pipe(cleanCSS())
 //        .pipe(concat('main.css'))
+        .pipe(sourcemaps.write("./maps"))
         .pipe(gulp.dest('./css'))
         .pipe(browserSync.reload({stream: true}));
 });
@@ -115,10 +126,14 @@ gulp.task('Iconfont', function(){
 //    })
     .pipe(gulp.dest('./fonts'));
 });
- 
+
 gulp.task('watch', ['browser-sync'], function () {
-    gulp.watch(path.css, ['sass']);
-    gulp.watch(path.js, ['requirejs']);
+    gulp.watch(path.css, ['sass']).on('change', function(e){
+        console.log( e.path +' has been changed.');
+    });
+    gulp.watch(path.js, ['requirejs']).on('change', function(e){
+        console.log( e.path +' has been changed.');
+    });
 	gulp.watch(path.html).on('change', browserSync.reload);
 });
 
